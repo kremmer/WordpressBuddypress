@@ -187,7 +187,7 @@ class JSON_API_BuddypressCUD_Controller {
 
         return; */
 
-    }
+
 
 
     /**
@@ -951,11 +951,11 @@ class JSON_API_BuddypressCUD_Controller {
     }
 
     public function __call($sName, $aArguments) {
-        if (class_exists("JSON_API_FOR_BUDDYPRESS_FUNCTION") &&
-                method_exists(JSON_API_FOR_BUDDYPRESS_FUNCTION, $sName) &&
-                is_callable("JSON_API_FOR_BUDDYPRESS_FUNCTION::" . $sName)) {
+        if (class_exists("JSON_CUD_API_FOR_BUDDYPRESS_FUNCTION") &&
+                method_exists(JSON_CUD_API_FOR_BUDDYPRESS_FUNCTION, $sName) &&
+                is_callable("JSON_CUD_API_FOR_BUDDYPRESS_FUNCTION::" . $sName)) {
             try {
-                return call_user_func_array("JSON_API_FOR_BUDDYPRESS_FUNCTION::" . $sName, $aArguments);
+                return call_user_func_array("JSON_CUD_API_FOR_BUDDYPRESS_FUNCTION::" . $sName, $aArguments);
             } catch (Exception $e) {
                 $oReturn = new stdClass();
                 $oReturn->status = "error";
@@ -968,7 +968,7 @@ class JSON_API_BuddypressCUD_Controller {
     }
 
     public function __get($sName) {
-        return isset(JSON_API_FOR_BUDDYPRESS_FUNCTION::$sVars[$sName]) ? JSON_API_FOR_BUDDYPRESS_FUNCTION::$sVars[$sName] : NULL;
+        return isset(JSON_CUD_API_FOR_BUDDYPRESS_FUNCTION::$sVars[$sName]) ? JSON_CUD_API_FOR_BUDDYPRESS_FUNCTION::$sVars[$sName] : NULL;
     }
 
 }
