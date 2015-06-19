@@ -47,6 +47,7 @@ class JSON_CUD_API_FOR_BUDDYPRESS_FUNCTION extends JSON_API_BuddypressCUD_Contro
      * @param String $sType type of the Value given by parameters array
      * @return mixed sanitized value
      */
+
     private static function sanitize($mValue, $sType) {
         switch ($sType) {
             case "int":

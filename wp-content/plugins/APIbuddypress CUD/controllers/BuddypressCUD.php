@@ -112,6 +112,8 @@ class JSON_API_BuddypressCUD_Controller {
         $aParams ['component'] = $this->component;
         $aParams ['type'] = $this->type;
 
+        $aTempActivities = bp_activity_get($aParams);
+
 
         if ( ! $activity->save() ) {
                      return false;
@@ -195,6 +197,7 @@ class JSON_API_BuddypressCUD_Controller {
      * @param String username: the username you want information from (required)
      * @return array profilefields: an array containing the profilefields
      */
+
     public function profile_get_profile() {
         $this->init('xprofile');
         $oReturn = new stdClass();
